@@ -1,6 +1,11 @@
 <script setup>
-import Header from './components/Header.vue'
-import TodoList from './components/TodoList.vue'
+  import Header from './components/Header.vue'
+  import TodoList from './components/TodoList.vue'
+
+  components: {
+    'Header',
+    'TodoList'
+  }
 </script>
 
 <template>
