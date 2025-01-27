@@ -1,6 +1,6 @@
 <template>
     <div id="app-body">
-        <h2>Input Todo Here: {{ todoInput }}</h2>
+        <h2>Input Todo Here</h2>
         <div>
             <form>
             <span class="inline-form-group">
@@ -10,7 +10,7 @@
         </form>
         </div>
         <div class="list-group">
-            <li class="list-item" v-for="(item, index) in items">
+            <li class="list-item" v-for="item in listItems">
                 <span class="list-info">
                     {{ item.id }}
                     {{ item.message }}
@@ -34,7 +34,13 @@
         },
         methods: {
             addTodo() {
-                console.log("Did not code logic yet!")
+                this.listItems.push(
+                    {
+                        id: this.listItems.length + 1,
+                        message: this.todoInput,
+                        timeStamp: "\'Current Date\''"
+                    }
+                )
             },
             removeTodo() {
                 console.log("This feature has not be coded yet!")
