@@ -15,7 +15,7 @@
                     <input type="checkbox" v-model="checkedListItems">
                     {{ item.message }}
                     {{ item.timeStamp }}
-                    <button class="listControl" type="button" @click="removeTodo(item)">X</button>
+                    <button class="list-close" type="button" @click="removeTodo(item)">X</button>
                 </span>
             </li>
         </div>
@@ -61,5 +61,19 @@
         max-width: 27vw;
         min-height: 75vh;
         padding: 1.5%;
+    }
+
+    .list-item {
+        border: .5px solid #02C77C;
+        border-radius: 5.5px;
+        list-style-type: none;
+        margin: 2%;
+        max-width: 80%;
+        padding: 2%;
+    }
+
+    .list-close {
+        background-image: linear-gradient(#A20202, #D60202);
+        margin-left: 12%;
     }
 </style>
