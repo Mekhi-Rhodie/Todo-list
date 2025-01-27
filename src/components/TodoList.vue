@@ -12,10 +12,10 @@
         <div class="list-group">
             <li class="list-item" v-for="item in listItems">
                 <span class="list-info">
-                    {{ item.id }}
+                    <input type="checkbox" v-model="checkedListItems">
                     {{ item.message }}
                     {{ item.timeStamp }}
-                    <button class="listControl" type="button" @click="removeTodo(item.id)">X</button>
+                    <button class="listControl" type="button" @click="removeTodo(item)">X</button>
                 </span>
             </li>
         </div>
@@ -42,8 +42,9 @@
                     }
                 )
             },
-            removeTodo() {
-                console.log("This feature has not be coded yet!")
+            removeTodo(todo) {
+                const result = this.listItems.filter((item) => item != todo)
+                this.listItems = result
             },
             bulkRemove() {
                 console.log("This has not been implemented yet!")
