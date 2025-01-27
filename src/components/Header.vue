@@ -11,5 +11,6 @@
 <style scoped>
     #app-header {
         background-color: coral;
+        padding: 2.5%
     }
 </style>
