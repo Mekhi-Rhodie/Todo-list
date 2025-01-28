@@ -4,7 +4,7 @@
         <div>
             <form>
             <span class="inline-form-group">
-                <input v-model.trim="todoInput" type="text" id="todoInput" name="todoInput" minlength="10" maxlength="25" placeholder="Todo...">
+                <input v-model.trim="todoInput" type="text" id="todo-input" name="todo-input" minlength="10" maxlength="25" placeholder="Todo...">
                 <button id="submitTodo" type="button" @click="addTodo">Submit</button>
             </span>
         </form>
@@ -19,6 +19,8 @@
                 </span>
             </li>
         </div>
+
+        <button v-if="checkedListItems.length > 0" @click="bulkRemove(checkedListItems)" type="button">Remove All</button>
     </div>
 </template>
 
@@ -46,8 +48,8 @@
                 const result = this.listItems.filter((item) => item != todo)
                 this.listItems = result
             },
-            bulkRemove() {
-                console.log("This has not been implemented yet!")
+            bulkRemove(items) {
+                console.dir(items)
             }
         }
     }
@@ -61,6 +63,10 @@
         max-width: 27vw;
         min-height: 75vh;
         padding: 1.5%;
+    }
+    
+    h2 {
+        font: 1.5rem "Calibri", sans-serif;
     }
 
     .list-item {
@@ -76,4 +82,10 @@
         background-image: linear-gradient(#A20202, #D60202);
         margin-left: 12%;
     }
+
+    #todo-input {
+        margin-top: 10%;
+        min-width: 85%;
+    }
+
 </style>
