@@ -13,7 +13,7 @@
     <Header />
   </header>
 
-  <main>
+  <main class="container-sm">
     <TodoList />
   </main>
 </template>
