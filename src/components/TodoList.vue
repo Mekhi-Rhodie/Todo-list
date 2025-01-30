@@ -4,7 +4,7 @@
             <h2>Input Todo Here:</h2>
             <form>
             <span class="inline-form-group row">
-                <input v-model.trim="todoInput" type="text" id="todo-input" class="form-control" name="todo-input" minlength="10" maxlength="25" placeholder="Todo...">
+                <input required v-model.trim="todoInput" type="text" id="todo-input" class="form-control" name="todo-input" minlength="10" maxlength="25" placeholder="Todo...">
                 <button id="submitTodo" type="button" class="col-1 btn btn-primary" @click="addTodo">Submit</button>
             </span>
         </form>
@@ -19,18 +19,20 @@
             </li>
         </div>
 
-        <button v-if="checkedListItems.length > 0" @click="bulkRemove(checkedListItems)" type="button">Remove All</button>
+        
     </div>
 </template>
 
 <script>
+import moment from 'moment';
+
     export default {
         data() {
             return {
                 todoInput: "",
                 timeStamp: "",
                 listItems: [],
-                checkedListItems: []
+                //checkedListItems: []
             }
         },
         methods: {
@@ -39,7 +41,7 @@
                     {
                         id: this.listItems.length + 1,
                         message: this.todoInput,
-                        timeStamp: 
+                        timeStamp: moment().format("dddd, MMMM Do YYYY, h:mm A")
                     }
                 )
             },
@@ -47,9 +49,6 @@
                 const result = this.listItems.filter((item) => item != todo)
                 this.listItems = result
             },
-            bulkRemove(items) {
-                console.dir(items)
-            }
         }
     }
 </script>
