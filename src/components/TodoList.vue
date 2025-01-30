@@ -1,21 +1,20 @@
 <template>
     <div id="app-body">
-        <h2>Input Todo Here</h2>
-        <div>
+        <div class="container">
+            <h2>Input Todo Here:</h2>
             <form>
-            <span class="inline-form-group">
-                <input v-model.trim="todoInput" type="text" id="todo-input" name="todo-input" minlength="10" maxlength="25" placeholder="Todo...">
-                <button id="submitTodo" type="button" @click="addTodo">Submit</button>
+            <span class="inline-form-group row">
+                <input v-model.trim="todoInput" type="text" id="todo-input" class="form-control" name="todo-input" minlength="10" maxlength="25" placeholder="Todo...">
+                <button id="submitTodo" type="button" class="col-1 btn btn-primary" @click="addTodo">Submit</button>
             </span>
         </form>
         </div>
         <div class="list-group">
-            <li class="list-item" v-for="item in listItems">
-                <span class="list-info">
-                    <input type="checkbox" v-model="checkedListItems">
-                    {{ item.message }}
-                    {{ item.timeStamp }}
-                    <button class="list-close" type="button" @click="removeTodo(item)">X</button>
+            <li class="list-item container" v-for="item in listItems">
+                <span class="list-info row">
+                    <span class="col-6">{{ item.message }}</span>
+                    <span class="col-3">{{ item.timeStamp }}</span>
+                    <button class="col-1 list-close btn btn-danger" type="button" @click="removeTodo(item)">X</button>
                 </span>
             </li>
         </div>
@@ -40,7 +39,7 @@
                     {
                         id: this.listItems.length + 1,
                         message: this.todoInput,
-                        timeStamp: "\'Current Date\''"
+                        timeStamp: 
                     }
                 )
             },
@@ -58,10 +57,10 @@
 <style scoped>
     #app-body {
         border: 5px solid #26292C;
-        border-radius: 5%;
+        /*border-radius: 5%;
         margin: 2% 35%;
         max-width: 27vw;
-        min-height: 75vh;
+        min-height: 75vh;*/
         padding: 1.5%;
     }
     
@@ -70,11 +69,10 @@
     }
 
     .list-item {
-        border: .5px solid #02C77C;
         border-radius: 5.5px;
         list-style-type: none;
+        max-width: 96%;
         margin: 2%;
-        max-width: 80%;
         padding: 2%;
     }
 
